@@ -1,0 +1,43 @@
+# 爬虫配置文件
+crawler:
+  # 请求配置
+  request:
+    timeout: 30
+    retry_times: 3
+    retry_delay: 2
+  
+  # 同步爬虫配置
+  sync:
+    enabled: true
+  
+  # 异步爬虫配置
+  async:
+    enabled: true
+    concurrent_limit: 10  # 并发数
+    request_delay: 0.5    # 请求间隔（秒）
+  
+  # 代理配置
+  proxy:
+    enabled: false
+    url: ""
+    # 代理池配置
+    pool:
+      enabled: false
+      file: "proxies.txt"      # 代理文件路径
+      api: ""                  # 代理API地址
+      test_url: "https://httpbin.org/ip"
+      min_score: 50            # 最低分数
+      check_interval: 300      # 检查间隔（秒）
+  
+  # User-Agent
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+
+# 输出配置
+output:
+  dir: "./output"
+  format: "json"  # json, csv, excel
+
+# 日志配置
+logging:
+  level: "INFO"
+  dir: "./logs"
